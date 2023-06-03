@@ -277,7 +277,7 @@ function Curl({ postman, codeSamples }: Props) {
 
   return (
     <>
-      <CodeTabs groupId="code-samples" action={setLanguage}>
+      <CodeTabs groupId="code-samples" action={setLanguage} mergedLangs={mergedLangs}>
         {mergedLangs.map((lang) => {
           return (
             <CodeTab
