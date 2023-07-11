@@ -166,11 +166,11 @@ function Curl({ postman, codeSamples }: Props) {
   ];
 
   // Filter languageSet by user-defined langs
-  const filteredLanguageSet = langs; /*languageSet.filter((ls) => {
+  const filteredLanguageSet = languageSet.filter((ls) => {
     return langs.some((lang) => {
       return lang.language === ls.language;
     });
-  });*/
+  });
 
   // Merge user-defined langs into languageSet
   const mergedLangs = merge(filteredLanguageSet, langs);
@@ -193,7 +193,7 @@ function Curl({ postman, codeSamples }: Props) {
   const [codeText, setCodeText] = useState("");
 
   useEffect(() => {
-    if (language && !!language.options) {
+    if (language && !!language.options && !language.source) {
       const postmanRequest = buildPostmanRequest(postman, {
         queryParams,
         pathParams,
